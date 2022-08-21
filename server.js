@@ -1,6 +1,7 @@
 import express from 'express';
 import mysql from 'mysql2/promise'; // promise permite usar async/await o promesas
 import mongoose from 'mongoose';
+import { v4 as uuid } from 'uuid';
 
 const app = express();
 
@@ -20,7 +21,10 @@ const app = express();
 // console.log(mongoConnection.connection.db.databaseName);
 
 app.get('/', (_req, res) => {
-    res.send('Hello World');
+    res.json({
+        id: uuid(),
+        name: 'John Doe',
+    });
 });
 
 app.listen(8080);

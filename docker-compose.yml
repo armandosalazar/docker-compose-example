@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  node-api:
+    image: node:16
+    container_name: node-api
+    ports:
+      - 8080:8080
+    build: .
+    command: npm start
+  database:
+    image: mysql:8.0.30
+    container_name: my-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: node-api
+    volumes:
+      - ./data:/var/lib/mysql
