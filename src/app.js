@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
 
     log.save();
 
-    return res.json({ id: uuid(), message: 'Successfully!' });
+    return res.json(log);
 })
 
 export default app;

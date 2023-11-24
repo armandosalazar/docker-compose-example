@@ -9,3 +9,5 @@
 `docker run --name server-node-app -p 80:3000 node-app:1.0`
 
 `docker exec -it server-node-app bash`
+
+`docker compose up`
