@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "." ]
+# CMD [ "node", "." ] # Descomentar en caso de que no se use docker-compose
