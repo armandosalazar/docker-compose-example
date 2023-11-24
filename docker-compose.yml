@@ -9,7 +9,8 @@ services:
       - .:/usr/src/app
     environment:
       - NODE_ENV=development
-    command: npm run dev
+    command: npm install && npm run dev
+    # command: npm run dev
   mongo-db:
     image: mongo
     container_name: mongo-db
