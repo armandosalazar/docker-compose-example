@@ -1,12 +1,11 @@
 version: '3.9'
 services:
   node-api:
+    image: armandosalazar/node-api:1.0
     build: .
     container_name: node-api
     ports:
       - 80:3000
-    volumes:
-      - .:/usr/src/app
     environment:
       - NODE_ENV=development
     command: npm run dev

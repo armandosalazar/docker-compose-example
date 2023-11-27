@@ -1,0 +1,27 @@
+FROM mongo
+
+RUN echo "Getting ready to run mongo"
+
+EXPOSE 27017
+
+FROM node:20-alpine3.18
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN echo "Getting ready to run node"
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 3000
+CMD [ "node", "." ] # Descomentar en caso de que no se use docker-compose

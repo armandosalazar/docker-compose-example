@@ -7,27 +7,33 @@ const app = express();
 
 app.use(morgan('dev'));
 
-const db = await mongoose.connect('mongodb://mongo-db:27017/logs_db');
-if (db.connection.readyState) {
-    console.log('MongoDB connected successfully! 🎉');
-}
+// const db = await mongoose.connect('mongodb://127.0.0.1:27017/logs_db');
 
-const SchemaLog = new mongoose.Schema({
-    id: String,
-    message: String
-});
+// if (db.connection.readyState) {
+//     console.log('MongoDB connected successfully! 🎉');
+// } else {
+//     console.log('MongoDB connection error! 🚫');
+// }
 
-const Log = mongoose.model('Log', SchemaLog);
+// const SchemaLog = new mongoose.Schema({
+//     id: String,
+//     message: String
+// });
+
+// const Log = mongoose.model('Log', SchemaLog);
 
 app.get('/', function (req, res) {
 
-    const log = new Log({ message: 'Successfully!' });
+    // const log = new Log({ message: 'Successfully!' });
 
-    console.log(log);
+    // console.log(log);
 
-    log.save();
+    // log.save();
 
-    return res.json(log);
+    // return res.json(log);
+    return res.json({
+        id: uuid()
+    });
 })
 
 export default app;

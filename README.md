@@ -11,3 +11,5 @@
 `docker exec -it server-node-app bash`
 
 `docker compose up`
+
+`docker build -t armandosalazar/node-api:1.0 . --no-cache`
